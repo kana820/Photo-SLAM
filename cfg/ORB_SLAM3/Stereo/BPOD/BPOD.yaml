@@ -21,28 +21,30 @@ File.version: "1.0"
 Camera.type: "PinHole"
 
 # Camera calibration and distortion parameters (OpenCV) 
-Camera1.fx: 458.654  #calibration.json inside ORB_SLAM_data
-Camera1.fy: 457.296
-Camera1.cx: 367.215
-Camera1.cy: 248.375
+# left camera
+Camera1.fx: 642.702  #calibration
+Camera1.fy: 644.445
+Camera1.cx: 642.189
+Camera1.cy: 410.259
 
-Camera1.k1: -0.28340811  #distortion coeff: set to 0 for now
-Camera1.k2: 0.07395907
-Camera1.p1: 0.00019359
-Camera1.p2: 1.76187114e-05
+Camera1.k1: 0.00066852  #distortion coeff
+Camera1.k2: 0.0197
+Camera1.p1: 0.000
+Camera1.p2: 0.000
 
-Camera2.fx: 457.587
-Camera2.fy: 456.134
-Camera2.cx: 379.999
-Camera2.cy: 255.238
+# right camera
+Camera2.fx: 642.357
+Camera2.fy: 644.011
+Camera2.cx: 639.048
+Camera2.cy: 409.868
 
-Camera2.k1: -0.28368365
-Camera2.k2: 0.07451284
-Camera2.p1: -0.00010473
-Camera2.p2: -3.55590700e-05
+Camera2.k1: 0.0126
+Camera2.k2: -0.0043
+Camera2.p1: 0.000
+Camera2.p2: 0.000
 
-Camera.width: 752
-Camera.height: 480
+Camera.width: 1280
+Camera.height: 800
 
 # Camera frames per second 
 Camera.fps: 20
@@ -55,10 +57,10 @@ Stereo.T_c1_c2: !!opencv-matrix
   rows: 4
   cols: 4
   dt: f
-  data: [0.999997256477797,-0.002317135723275,-0.000343393120620,0.110074137800478,
-         0.002312067192432,0.999898048507103,-0.014090668452683,-0.000156612054392,
-         0.000376008102320,0.014089835846691,0.999900662638081,0.000889382785432,
-         0,0,0,1.000000000000000]  # relative position between left and right cameras
+  data: [0.999989397309312,  -0.000310287554897,   0.004594452153621,  -0.094418236633125801,
+         0.000307103196590,   0.999999712180526,   0.000693776975826,  -0.00134712411266931,
+         -0.004594666101610,  -0.000692358648980,   0.999989204783190,   0.00280409786672127,
+         0.000, 0.000, 0.000, 1.000] # relative position between left and right cameras
 
 #--------------------------------------------------------------------------------------------
 # ORB Parameters

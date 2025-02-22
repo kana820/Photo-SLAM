@@ -6,6 +6,9 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
 
+set(OpenCV_DIR /gpfs/data/bkimia/ktakiza1/opencv/opencv-4.7.0/opencv_install/lib64/cmake/opencv4)
+set(Torch_DIR /gpfs/data/bkimia/ktakiza1/libtorch-cxx11-abi-shared-with-deps-2.1.2+cu118/libtorch/share/cmake/Torch)
+set(glfw3_DIR /gpfs/data/bkimia/ktakiza1/glfw-3.4/glfw_install/lib64/cmake/glfw3)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CUDA_STANDARD 17)
@@ -32,7 +35,7 @@ find_package(OpenGL REQUIRED)
 find_package(glm REQUIRED)
 find_package(glfw3 REQUIRED)
 
-find_package(realsense2)
+# find_package(realsense2)
 
 set(ORB_SLAM3_SOURCE_DIR "${PROJECT_SOURCE_DIR}/ORB-SLAM3")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
@@ -231,13 +234,13 @@ target_link_libraries(euroc_stereo
 ##################################################################################
 
 # Intel Realsense
-if(realsense2_FOUND)
-    add_executable(realsense_rgbd examples/realsense_rgbd.cpp)
-    target_include_directories(realsense_rgbd PUBLIC
-        ${realsense_INCLUDE_DIR})
-    target_link_libraries(realsense_rgbd
-        gaussian_viewer    
-        gaussian_mapper
-        ${ORB_SLAM3_SOURCE_DIR}/lib/libORB_SLAM3.so
-        ${realsense2_LIBRARY})
-endif()
+# if(realsense2_FOUND)
+#    add_executable(realsense_rgbd examples/realsense_rgbd.cpp)
+#    target_include_directories(realsense_rgbd PUBLIC
+#        ${realsense_INCLUDE_DIR})
+#    target_link_libraries(realsense_rgbd
+#        gaussian_viewer    
+#        gaussian_mapper
+#        ${ORB_SLAM3_SOURCE_DIR}/lib/libORB_SLAM3.so
+#        ${realsense2_LIBRARY})
+#endif()

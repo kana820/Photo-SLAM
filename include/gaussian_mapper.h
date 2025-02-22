@@ -37,7 +37,7 @@
 #include <opencv2/cudastereo.hpp>
 #include <opencv2/cudawarping.hpp>
 
-#include <jsoncpp/json/json.h>
+#include <json/json.h>
 
 #include "ORB-SLAM3/include/System.h"
 #include "ORB-SLAM3/Thirdparty/Sophus/sophus/se3.hpp"

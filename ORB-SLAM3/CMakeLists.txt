@@ -8,6 +8,7 @@ ENDIF()
 
 MESSAGE("Build type: " ${CMAKE_BUILD_TYPE})
 
+set(OpenCV_DIR /gpfs/data/bkimia/ktakiza1/opencv/opencv-4.7.0/opencv_install/lib64/cmake/opencv4)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}  -O3")#  -Wall ")#
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}   -O3")# -Wall")#
 set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE}")# -march=native")
@@ -40,7 +41,7 @@ MESSAGE("OPENCV VERSION:")
 MESSAGE(${OpenCV_VERSION})
 
 find_package(Eigen3 3.1.0 REQUIRED)
-find_package(realsense2)
+# find_package(realsense2)
 
 include_directories(
 ${PROJECT_SOURCE_DIR}
@@ -124,11 +125,11 @@ ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
 )
 
 # If RealSense SDK is found the library is added and its examples compiled
-if(realsense2_FOUND)
-    include_directories(${PROJECT_NAME}
-    ${realsense_INCLUDE_DIR}
-    )
-    target_link_libraries(${PROJECT_NAME}
-    ${realsense2_LIBRARY}
-    )
-endif()
+# if(realsense2_FOUND)
+#    include_directories(${PROJECT_NAME}
+#    ${realsense_INCLUDE_DIR}
+#    )
+#    target_link_libraries(${PROJECT_NAME}
+#    ${realsense2_LIBRARY}
+#    )
+#endif()

@@ -1453,7 +1453,8 @@ bool Tracking::GetStepByStep()
 
 Sophus::SE3f Tracking::GrabImageStereo(const cv::Mat &imRectLeft, const cv::Mat &imRectRight, const double &timestamp, string filename)
 {
-    //cout << "GrabImageStereo" << endl;
+    cout << "GrabImageStereo" << endl;
+    std::cout << mState << std::endl;
 
     mImGray = imRectLeft;
     cv::Mat imGrayRight = imRectRight;
@@ -1547,9 +1548,9 @@ Sophus::SE3f Tracking::GrabImageStereo(const cv::Mat &imRectLeft, const cv::Mat 
     vdStereoMatch_ms.push_back(mCurrentFrame.mTimeStereoMatch);
 #endif
 
-    //cout << "Tracking start" << endl;
+    cout << "Tracking start" << endl;
     Track();
-    //cout << "Tracking end" << endl;
+    cout << "Tracking end" << endl;
 
     return mCurrentFrame.GetPose();
 }
@@ -1938,8 +1939,6 @@ void Tracking::Track()
 
         }
     }
-
-
     if ((mSensor == System::IMU_MONOCULAR || mSensor == System::IMU_STEREO || mSensor == System::IMU_RGBD) && mpLastKeyFrame)
         mCurrentFrame.SetNewBias(mpLastKeyFrame->GetImuBias());
 
@@ -1979,7 +1978,7 @@ void Tracking::Track()
         mbMapUpdated = true;
     }
 
-
+    std::cout << mState << std::endl;
     if(mState==NOT_INITIALIZED)
     {
         if(mSensor==System::STEREO || mSensor==System::RGBD || mSensor==System::IMU_STEREO || mSensor==System::IMU_RGBD)
@@ -2016,13 +2015,11 @@ void Tracking::Track()
         // Initial camera pose estimation using motion model or relocalization (if tracking is lost)
         if(!mbOnlyTracking)
         {
-
             // State OK
             // Local Mapping is activated. This is the normal behaviour, unless
             // you explicitly activate the "only tracking" mode.
             if(mState==OK)
             {
-
                 // Local Mapping might have changed some MapPoints tracked in last frame
                 CheckReplacedInLastFrame();
 
@@ -2061,7 +2058,6 @@ void Tracking::Track()
             }
             else
             {
-
                 if (mState == RECENTLY_LOST)
                 {
                     Verbose::PrintMess("Lost for a short time", Verbose::VERBOSITY_NORMAL);
@@ -2097,7 +2093,6 @@ void Tracking::Track()
                 }
                 else if (mState == LOST)
                 {
-
                     Verbose::PrintMess("A new map is started...", Verbose::VERBOSITY_NORMAL);
 
                     if (pCurrentMap->KeyFramesInMap()<10)
