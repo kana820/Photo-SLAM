@@ -1,4 +1,8 @@
 # Photo-SLAM
+### To run on BPOD
+1. Load cuda, cudnn, and boost
+2. run photo-slam.sh in scripts
+
 ### [Homepage](https://huajianup.github.io/research/Photo-SLAM/) | [Paper](https://arxiv.org/abs/2311.16728)
 
 **Photo-SLAM: Real-time Simultaneous Localization and Photorealistic Mapping for Monocular, Stereo, and RGB-D Cameras** <br>
